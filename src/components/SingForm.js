@@ -1,5 +1,7 @@
 import React from "react";
 import { useState } from "react";
+import InputField from "./inputField";
+
 
 const SingForm = ({addSing}) => {
     
@@ -48,25 +50,40 @@ const SingForm = ({addSing}) => {
   
     return (
         <form onSubmit={onSubmit}>
-          <input
+          <InputField
+            type="text"
+            value={singTitle}
+            placeholder='노래제목'
+            onChange={e => setSingTitle(e.target.value)}
+            errorMessage={titleError}
+          ></InputField>
+
+          {/* <input
           type = "text"
           value={singTitle}
           placeholder='노래제목'
           onChange={e => setSingTitle(e.target.value)}></input>
           <br></br>
 
-          <div style={{color:'red'}}>{titleError}</div>
+          <div style={{color:'red'}}>{titleError}</div> */}
 
-          <input
+          <InputField
+            type="number"
+            value={singYear}
+            placeholder='개봉년도'
+            onChange={e => setSingYear(e.target.value)}
+            errorMessage={yearError}
+          ></InputField>
+
+          {/* <input
           type = "number"
           value={singYear}
           placeholder='개봉년도'
           onChange={e => setSingYear(e.target.value)}></input>
           <br></br>
+
+          <div style={{color:'red'}}>{yearError}</div> */}
           <button type = "submit">노래 추가</button>
-
-          <div style={{color:'red'}}>{yearError}</div>
-
         </form>
     )
 }
